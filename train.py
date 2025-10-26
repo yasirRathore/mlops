@@ -18,8 +18,7 @@ with mlflow.start_run() as run:
     mlflow.log_param("model_type", "LogisticRegression")
     mlflow.log_metric("accuracy", model.score(X_test, y_test))
 
-    model_path = "./artifacts"
-    mlflow.sklearn.log_model(sk_model=model, path=model_path)
+    mlflow.sklearn.log_model(model, registered_model_name="iris_model")
 
     print("\n=== MLflow Run Info ===")
     print("Run ID:", run.info.run_id)
