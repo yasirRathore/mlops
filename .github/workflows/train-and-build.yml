@@ -30,13 +30,3 @@ jobs:
       - name: Verify artifacts produced
         run: |
           ls -R artifacts
-
-      - name: Upload model artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: model-artifacts
-          path: artifacts/
-
-      - name: Build Docker image
-        run: |
-          docker build -t my-ml-model:latest .
